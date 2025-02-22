@@ -1,6 +1,6 @@
 const util = require('util');
 const fs = require('fs-extra');
-const { zokou } = require(__dirname + "/../framework/zokou");
+const { wasuke } = require(__dirname + "/../framework/zokou");
 const { format, styletext } = require(__dirname + "/../framework/mesfonctions");
 //const {police}=require(__dirname+"/../framework/mesfonctions")
 const os = require("os");
@@ -14,7 +14,7 @@ zokou({ nomCom: "menu", categorie: "Général" }, async (dest, zk, commandeOptio
     if (s.MODE != "oui") {
         mode = "privé";
     }
-    var emoji = { "Général": "🌐", "Logo": "🎨", "Hentai": "🔥", "Weeb": "🌸", "Recherche": "🔍", "Conversion": "🌟", "Groupe": "♻️", "Autre": "🪖" };
+    var emoji = { "Général": "💧", "Logo": "👻", "Hentai": "🔥", "Weeb": "🌸", "Recherche": "🔍", "Conversion": "🌟", "Groupe": "♻️", "Autre": "🪖" };
     cm.map(async (com, index) => { if (!coms[com.categorie])
         coms[com.categorie] = []; coms[com.categorie].push(com.nomCom); });
     const temps = moment(moment()).format("HH:MM:SS");
@@ -44,7 +44,7 @@ zokou({ nomCom: "menu", categorie: "Général" }, async (dest, zk, commandeOptio
    ||      Date : ${date}
    ||      Heure : ${temps}
    ||      Mémoire : ${format(os.totalmem()-os.freemem())}/${format(os.totalmem())}                   {Plateforme : ${os.platform()}
-   ||  Développeurs : Djalega++||Luffy
+   ||  Développeurs : Djalega||wasuke 
    ||
    ╚════ ▓▓ ࿇ ▓▓ ════╝`;*/
     menuMsg += `
@@ -57,18 +57,18 @@ zokou({ nomCom: "menu", categorie: "Général" }, async (dest, zk, commandeOptio
 ║    Heure : ${temps}
 ║    Mémoire : ${format(os.totalmem() - os.freemem())}/${format(os.totalmem())}
 ║    Plateforme : ${os.platform()}
-║    Développeurs : Djalega++||Luffy
+║    Développeurs : WASUKE||Luffy
 ╚════--------------- \n\n`;
     for (const cat in coms) {
         if (!emoji[cat]) {
-            emoji[cat] = "💞";
+            emoji[cat] = "🌒";
         }
         menuMsg += `${emoji[cat]} ══ *${cat} * ══ ${emoji[cat]}\n`;
         for (const cmd of coms[cat]) {
             menuMsg += "\t  ║ " + cmd + "" + " \n";
         }
     }
-    //  var link = "https://wallpapercave.com/uwp/uwp3860299.jpeg";
+    //  var link = "https://i.ibb.co/FLB1dRBc/temp-image.jpg";
     var link = s.IMAGE_MENU;
     try {
         zk.sendMessage(dest, { image: { url: link }, caption: menuMsg, footer: "by Djalega++" }, { quoted: ms });
@@ -84,7 +84,7 @@ zokou({ nomCom: "menu", categorie: "Général" }, async (dest, zk, commandeOptio
 module.exports.commande =()=>
   {
     var nomCom=["menu","m","fonctions"];
-    var reaction="🐞"
+    var reaction="🫠"
     var categorie="général"
 
 
